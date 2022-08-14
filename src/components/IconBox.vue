@@ -101,4 +101,53 @@ defineProps({
 		margin-block-end: 0em;
 	}
 }
+@media only screen and (min-width: 600px) {
+	.icon-box-container {
+		width: 515px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	.icon-box-container:nth-child(odd) {
+		margin-left: 58px;
+	}
+	.icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		background-color: $blue;
+		height: 124px;
+		width: 35.5%;
+		border-radius: 45px;
+	}
+
+	.footer {
+		display: flex;
+		flex-direction: column;
+		text-align: start;
+		width: inherit;
+		margin-top: 0;
+		margin-left: 55px;
+		row-gap: 11px;
+		word-spacing: 0;
+		h3 {
+			color: $white;
+			font-size: 18px;
+			font-weight: 800;
+			line-height: 25px;
+			margin-block-start: 0em;
+			margin-block-end: 0em;
+		}
+		p {
+			font-size: 15px;
+			font-weight: 500;
+			line-height: 25px;
+			color: $grey;
+			margin-block-start: 0em;
+			margin-block-end: 0em;
+		}
+	}
+}
 </style>

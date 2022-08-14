@@ -2,17 +2,14 @@
 	<nav class="navbar">
 		<MakerIcon />
 	</nav>
-	<header class="header">
-		<!-- 		<LeftHalfBackground class="background left" />
-		<RightHalfBackground class="background right" /> -->
+	<header class="main-header">
 		<div class="sub-header">
-			<h1 class="header-title">Get paid for the work you love to do.</h1>
-			<h3 class="header-description">
+			<h1 class="sub-title">Get paid for the work you love to do.</h1>
+			<h3 class="sub-description">
 				The 9-5 grind is so last century. We believe in living life on your own
 				terms. Whether you're looking to escape the rat race or set up a side
 				hustle, we've got you covered.
 			</h3>
-			<PathSvg class="path-svg" />
 			<MouseSvg class="mouse-svg" />
 		</div>
 	</header>
@@ -63,14 +60,14 @@
 		</section>
 		<footer class="footer-section">
 			<h3 class="footer-title">Get notified when we launch</h3>
-			<TextField />
-			<MButton text="Get Notified" />
+			<div class="footer-buttons">
+				<TextField class="footer-input-size" />
+				<MButton class="footer-button-size" text="Get Notified" />
+			</div>
 		</footer>
-
-		<!-- TO DO - Iconbox + PriceModal check svg so it changes through tablet + desktop -->
 	</main>
 </template>
-
+<!-- TO DO - Iconbox + PriceModal check svg so it changes through tablet + desktop -->
 <script setup>
 /* import HelloWorld from "./components/HelloWorld.vue"; */
 import TextField from "./components/TextField.vue";
@@ -99,6 +96,12 @@ const checks2 = ref([
 
 <style lang="scss">
 @import "./assets/variables";
+
+.navbar {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
 .main-container {
 	margin-top: 15px;
 	display: flex;
@@ -108,20 +111,16 @@ const checks2 = ref([
 	padding-right: 24px;
 	align-items: center;
 	row-gap: 15px;
+	margin-top: 144px;
+	margin-bottom: 164px;
 }
-.background {
-	position: absolute;
-	z-index: -1;
-	&.left {
-		left: 0;
-	}
-	&.right {
-		right: 0;
-	}
-}
-.header {
+.main-header {
+	background-image: url("./assets/FullBG.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
 	margin-top: 66px;
 	display: flex;
+	justify-content: center;
 	padding-left: 24px;
 	padding-right: 24px;
 }
@@ -130,8 +129,9 @@ const checks2 = ref([
 	flex-direction: column;
 	margin-top: 298px;
 	align-items: center;
+	width: 100%;
 
-	.header-title {
+	.sub-title {
 		font-style: normal;
 		font-weight: 800;
 		font-size: 32px;
@@ -145,7 +145,7 @@ const checks2 = ref([
 		margin-block-start: 0em;
 		margin-block-end: 0em;
 	}
-	.header-description {
+	.sub-description {
 		font-family: "Manrope";
 		font-style: normal;
 		font-weight: 500;
@@ -159,17 +159,11 @@ const checks2 = ref([
 	}
 }
 
-.navbar {
-	display: flex;
-	justify-content: center;
-	margin-top: 40px;
-}
 .icons-section {
 	display: flex;
 	flex-direction: column;
 	row-gap: 56px;
-	margin-top: 144px;
-	margin-bottom: 144px;
+	width: inherit;
 }
 .pricing-section {
 	margin-bottom: 144px;
@@ -201,65 +195,79 @@ const checks2 = ref([
 .footer-section {
 	display: flex;
 	flex-direction: column;
+	row-gap: 31px;
+	padding-top: 5px;
+}
+.footer-buttons {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	width: 100%;
 	row-gap: 24px;
-	margin-bottom: 164px;
-	.footer-title {
-		font-family: Manrope;
-		font-size: 24px;
-		font-weight: 800;
-		line-height: 33px;
-		letter-spacing: 0px;
-		text-align: center;
-		color: $white;
-	}
+}
+.footer-title {
+	font-family: Manrope;
+	font-size: 24px;
+	font-weight: 800;
+	line-height: 33px;
+	letter-spacing: 1px;
+	margin: 0 42px;
+	text-align: center;
+	color: $white;
 }
 .path-svg {
 	display: none;
 }
+
 @media only screen and (min-width: 600px) {
+	.navbar {
+		display: flex;
+		justify-content: flex-start;
+		margin-top: 48px;
+		margin-left: 39px;
+	}
 	.main-container {
-		margin-top: 15px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding-left: 24px;
-		padding-right: 24px;
+		max-width: 100%;
+		padding-left: 97px;
+		padding-right: 97px;
 		align-items: center;
 		row-gap: 15px;
 	}
 	/* chequear aca que esta pasando */
-	.background {
-		position: absolute;
-		z-index: -1;
-		width: 314px;
-		height: 356px;
-		&.left {
-			left: -168px;
-		}
-		&.right {
-			right: -170px;
-		}
-	}
-	.header {
-		margin-top: 66px;
+	.main-header {
+		background-image: url("./assets/LeftBG.svg"), url("./assets/RightBG.svg");
+		background-position: -36% 0, 121% 0;
+		background-size: 303px, 241px;
+		background-repeat: no-repeat;
+		margin-top: 78px;
 		display: flex;
 		padding-left: 24px;
 		padding-right: 24px;
 	}
+
 	.sub-header {
+		background-image: url("./assets/PathBG.svg");
+		background-position: 42% 9%;
+		background-size: 461px 276px;
+		background-repeat: no-repeat;
+		margin-top: 27px;
 		display: flex;
 		flex-direction: column;
-		margin-top: 298px;
+		width: 62%;
+		height: 314px;
 		align-items: center;
 
-		.header-title {
+		.sub-title {
 			font-style: normal;
 			font-weight: 800;
 			font-size: 32px;
 			line-height: 40px;
 			text-align: center;
 			word-spacing: 1px;
+			padding-top: 25px;
 			padding-left: 30px;
 			padding-right: 30px;
 			color: $white;
@@ -267,7 +275,7 @@ const checks2 = ref([
 			margin-block-start: 0em;
 			margin-block-end: 0em;
 		}
-		.header-description {
+		.sub-description {
 			font-family: "Manrope";
 			font-style: normal;
 			font-weight: 500;
@@ -281,21 +289,14 @@ const checks2 = ref([
 		}
 	}
 
-	.navbar {
-		display: flex;
-		justify-content: flex-start;
-		margin-top: 48px;
-		margin-left: 39px;
-	}
 	.icons-section {
 		display: flex;
 		flex-direction: column;
 		row-gap: 56px;
-		margin-top: 144px;
-		margin-bottom: 144px;
+		width: inherit;
+		margin-bottom: 141px;
 	}
 	.pricing-section {
-		margin-bottom: 144px;
 		.pricing-title {
 			font-family: Manrope;
 			font-size: 24px;
@@ -319,6 +320,7 @@ const checks2 = ref([
 			flex-direction: column;
 			row-gap: 65px;
 			margin-top: 56px;
+			padding: 0 57px;
 		}
 	}
 	.footer-section {
@@ -326,20 +328,32 @@ const checks2 = ref([
 		flex-direction: column;
 		width: 100%;
 		row-gap: 24px;
-		margin-bottom: 164px;
-		.footer-title {
-			font-family: Manrope;
-			font-size: 24px;
-			font-weight: 800;
-			line-height: 33px;
-			letter-spacing: 0px;
-			text-align: center;
-			color: $white;
-		}
 	}
+	.footer-title {
+		font-family: Manrope;
+		font-size: 24px;
+		font-weight: 800;
+		line-height: 33px;
+		letter-spacing: 0px;
+		text-align: center;
+		color: $white;
+	}
+	.footer-buttons {
+		flex-direction: row;
+		column-gap: 16px;
+	}
+	.footer-input-size {
+		width: 320px;
+	}
+	.footer-button-size {
+		width: 140px;
+	}
+
 	.path-svg {
-		position: absolute;
+		position: relative;
 		display: block;
+		top: -170px;
+		z-index: -1;
 	}
 }
 </style>

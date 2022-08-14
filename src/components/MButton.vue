@@ -16,7 +16,7 @@ defineProps({
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: inherit;
+	box-sizing: border-box;
 	height: 48px;
 	background-color: $light-blue;
 	border-radius: 24px;

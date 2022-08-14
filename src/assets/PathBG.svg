@@ -1,4 +1,3 @@
-<template>
 	<svg
 		width="386"
 		height="268"
@@ -12,11 +11,3 @@
 			fill="#093F68"
 		/>
 	</svg>
-</template>
-<script setup>
-defineProps({
-	width: { type: String, default: "386" },
-	height: { type: String, default: "268" },
-});
-</script>
-<style lang="scss" scoped></style>

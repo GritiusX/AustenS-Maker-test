@@ -30,8 +30,8 @@ defineProps({
 	flex-direction: column;
 }
 .text-field {
+	box-sizing: border-box;
 	height: 48px;
-	width: inherit;
 	border-radius: 24px;
 	border: 0px;
 	background-color: $blue;
