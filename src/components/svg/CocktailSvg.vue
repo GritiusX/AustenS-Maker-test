@@ -1,7 +1,7 @@
 <template>
 	<svg
-		:width="width"
-		:height="height"
+		width="80"
+		height="94"
 		viewBox="0 0 80 94"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
@@ -85,10 +85,5 @@
 	</svg>
 </template>
 
-<script setup>
-defineProps({
-	width: { type: String, default: "60" },
-	height: { type: String, default: "71" },
-});
-</script>
+<script setup></script>
 <style lang="scss" scoped></style>
