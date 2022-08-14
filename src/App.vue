@@ -103,15 +103,13 @@ const checks2 = ref([
 	margin-top: 40px;
 }
 .main-container {
-	margin-top: 15px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-left: 24px;
-	padding-right: 24px;
 	align-items: center;
-	row-gap: 15px;
 	margin-top: 144px;
+	padding: 0 24px;
+	row-gap: 144px;
 	margin-bottom: 164px;
 }
 .main-header {
@@ -121,13 +119,12 @@ const checks2 = ref([
 	margin-top: 66px;
 	display: flex;
 	justify-content: center;
-	padding-left: 24px;
-	padding-right: 24px;
+	padding: 0 24px;
 }
 .sub-header {
 	display: flex;
 	flex-direction: column;
-	margin-top: 298px;
+	margin-top: 320px;
 	align-items: center;
 	width: 100%;
 
@@ -138,10 +135,8 @@ const checks2 = ref([
 		line-height: 40px;
 		text-align: center;
 		word-spacing: 1px;
-		padding-left: 30px;
-		padding-right: 30px;
+		padding: 0 30px;
 		color: $white;
-		z-index: 0;
 		margin-block-start: 0em;
 		margin-block-end: 0em;
 	}
@@ -154,6 +149,7 @@ const checks2 = ref([
 		text-align: center;
 		color: $grey;
 		z-index: 0;
+		padding: 0 13px;
 		margin-top: 23px;
 		margin-bottom: 32px;
 	}
@@ -166,7 +162,6 @@ const checks2 = ref([
 	width: inherit;
 }
 .pricing-section {
-	margin-bottom: 144px;
 	.pricing-title {
 		font-family: Manrope;
 		font-size: 24px;
@@ -190,6 +185,7 @@ const checks2 = ref([
 		flex-direction: column;
 		row-gap: 65px;
 		margin-top: 56px;
+		padding: 0 25px;
 	}
 }
 .footer-section {
@@ -221,106 +217,127 @@ const checks2 = ref([
 
 @media only screen and (min-width: 600px) {
 	.navbar {
-		display: flex;
 		justify-content: flex-start;
 		margin-top: 48px;
 		margin-left: 39px;
 	}
 	.main-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		max-width: 100%;
-		padding-left: 97px;
-		padding-right: 97px;
-		align-items: center;
-		row-gap: 15px;
+		padding: 0 97px;
+		row-gap: 119px;
+		margin-top: 109px;
+		margin-bottom: 105px;
 	}
 	/* chequear aca que esta pasando */
 	.main-header {
-		background-image: url("./assets/LeftBG.svg"), url("./assets/RightBG.svg");
-		background-position: -36% 0, 121% 0;
-		background-size: 303px, 241px;
-		background-repeat: no-repeat;
+		background-image: url("./assets/LeftBG.svg"), url("./assets/PathBG.svg"),
+			url("./assets/RightBG.svg");
+		background-position: -36% 0, 50% 25px, 121% 0;
+		background-size: 303px, 386px, 241px;
 		margin-top: 78px;
-		display: flex;
-		padding-left: 24px;
-		padding-right: 24px;
+		height: 343px;
 	}
 
 	.sub-header {
-		background-image: url("./assets/PathBG.svg");
+		/* 		background-image: url("./assets/PathBG.svg");
 		background-position: 42% 9%;
 		background-size: 461px 276px;
-		background-repeat: no-repeat;
+		background-repeat: no-repeat; */
+
 		margin-top: 27px;
-		display: flex;
-		flex-direction: column;
 		width: 62%;
-		height: 314px;
-		align-items: center;
 
 		.sub-title {
-			font-style: normal;
-			font-weight: 800;
-			font-size: 32px;
-			line-height: 40px;
-			text-align: center;
-			word-spacing: 1px;
 			padding-top: 25px;
-			padding-left: 30px;
-			padding-right: 30px;
-			color: $white;
-			z-index: 0;
-			margin-block-start: 0em;
-			margin-block-end: 0em;
 		}
 		.sub-description {
-			font-family: "Manrope";
-			font-style: normal;
-			font-weight: 500;
-			font-size: 15px;
-			line-height: 25px;
-			text-align: center;
-			color: $grey;
-			z-index: 0;
-			margin-top: 23px;
-			margin-bottom: 32px;
+			padding: 0 0;
 		}
 	}
 
-	.icons-section {
+	.pricing-section {
+		margin-top: 22px;
+		.pricing-modals {
+			padding: 0 64px;
+		}
+	}
+	.footer-section {
 		display: flex;
 		flex-direction: column;
-		row-gap: 56px;
-		width: inherit;
-		margin-bottom: 141px;
+		width: 100%;
+		row-gap: 24px;
 	}
+	.footer-title {
+		font-family: Manrope;
+		font-size: 24px;
+		font-weight: 800;
+		line-height: 33px;
+		letter-spacing: 0px;
+		text-align: center;
+		color: $white;
+	}
+	.footer-buttons {
+		flex-direction: row;
+		column-gap: 16px;
+	}
+	.footer-input-size {
+		width: 320px;
+	}
+	.footer-button-size {
+		width: 140px;
+	}
+
+	.path-svg {
+		position: relative;
+		display: block;
+		top: -170px;
+		z-index: -1;
+	}
+}
+@media only screen and (min-width: 992px) {
+	.navbar {
+		justify-content: flex-start;
+		margin-top: 81px;
+		margin-left: 165px;
+	}
+	.main-container {
+		max-width: 100%;
+		padding: 0 165px;
+		row-gap: 119px;
+		margin-top: 109px;
+		margin-bottom: 105px;
+	}
+	/* */
+	.main-header {
+		background-image: url("./assets/LeftBG.svg"), url("./assets/PathBG.svg"),
+			url("./assets/RightBG.svg");
+		background-position: -5.5% 0, 50% 0px, 100% 0;
+		background-size: 407px, 400px, 340px;
+		margin-top: 114px;
+		height: 459px;
+	}
+
+	.sub-header {
+		margin-top: 48px;
+		width: 38%;
+		.sub-title {
+			font-size: 48px;
+			line-height: 56px;
+			padding: 25px 0px 0px;
+		}
+		.sub-description {
+			padding: 0 0;
+			margin-bottom: 64px;
+		}
+	}
+	/*     display: flex;
+    flex-direction: row;
+    row-gap: 56px;
+    /* width: inherit; */
 	.pricing-section {
-		.pricing-title {
-			font-family: Manrope;
-			font-size: 24px;
-			font-weight: 800;
-			line-height: 33px;
-			letter-spacing: 0px;
-			text-align: center;
-			color: $white;
-		}
-		.pricing-description {
-			font-family: Manrope;
-			font-size: 15px;
-			font-weight: 500;
-			line-height: 25px;
-			letter-spacing: 0px;
-			text-align: center;
-			color: $grey;
-		}
+		margin-top: 22px;
 		.pricing-modals {
-			display: flex;
-			flex-direction: column;
-			row-gap: 65px;
-			margin-top: 56px;
-			padding: 0 57px;
+			padding: 0 64px;
 		}
 	}
 	.footer-section {
