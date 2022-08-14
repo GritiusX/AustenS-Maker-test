@@ -1,10 +1,10 @@
 <template>
 	<div class="icon-box-container">
 		<header class="icon">
-			<EggSvg v-if="icon === 'egg'" :width="width" :height="height" />
-			<MoneyjarSvg v-if="icon === 'moneyjar'" :width="width" :height="height" />
-			<CocktailSvg v-if="icon === 'cocktail'" :width="width" :height="height" />
-			<RoadtripSvg v-if="icon === 'roadtrip'" :width="width" :height="height" />
+			<EggSvg v-if="icon === 'egg'" class="egg" />
+			<MoneyjarSvg v-if="icon === 'moneyjar'" class="moneyjar" />
+			<CocktailSvg v-if="icon === 'cocktail'" class="cocktail" />
+			<RoadtripSvg v-if="icon === 'roadtrip'" class="roadtrip" />
 		</header>
 		<footer class="footer">
 			<h3>{{ title }}</h3>
@@ -59,6 +59,22 @@ defineProps({
 	height: 124px;
 	width: 120px;
 	border-radius: 45px;
+}
+.egg {
+	width: 66px;
+	height: 88px;
+}
+.moneyjar {
+	width: 56px;
+	height: 67px;
+}
+.cocktail {
+	width: 60px;
+	height: 71px;
+}
+.roadtrip {
+	width: 78px;
+	height: 56px;
 }
 .footer {
 	display: flex;
