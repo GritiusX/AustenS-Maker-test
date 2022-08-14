@@ -3,8 +3,8 @@
 		<MakerIcon />
 	</nav>
 	<header class="header">
-		<LeftHalfBackground class="background left" />
-		<RightHalfBackground class="background right" />
+		<!-- 		<LeftHalfBackground class="background left" />
+		<RightHalfBackground class="background right" /> -->
 		<div class="sub-header">
 			<h1 class="header-title">Get paid for the work you love to do.</h1>
 			<h3 class="header-description">
@@ -216,5 +216,130 @@ const checks2 = ref([
 }
 .path-svg {
 	display: none;
+}
+@media only screen and (min-width: 600px) {
+	.main-container {
+		margin-top: 15px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-left: 24px;
+		padding-right: 24px;
+		align-items: center;
+		row-gap: 15px;
+	}
+	/* chequear aca que esta pasando */
+	.background {
+		position: absolute;
+		z-index: -1;
+		width: 314px;
+		height: 356px;
+		&.left {
+			left: -168px;
+		}
+		&.right {
+			right: -170px;
+		}
+	}
+	.header {
+		margin-top: 66px;
+		display: flex;
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+	.sub-header {
+		display: flex;
+		flex-direction: column;
+		margin-top: 298px;
+		align-items: center;
+
+		.header-title {
+			font-style: normal;
+			font-weight: 800;
+			font-size: 32px;
+			line-height: 40px;
+			text-align: center;
+			word-spacing: 1px;
+			padding-left: 30px;
+			padding-right: 30px;
+			color: $white;
+			z-index: 0;
+			margin-block-start: 0em;
+			margin-block-end: 0em;
+		}
+		.header-description {
+			font-family: "Manrope";
+			font-style: normal;
+			font-weight: 500;
+			font-size: 15px;
+			line-height: 25px;
+			text-align: center;
+			color: $grey;
+			z-index: 0;
+			margin-top: 23px;
+			margin-bottom: 32px;
+		}
+	}
+
+	.navbar {
+		display: flex;
+		justify-content: flex-start;
+		margin-top: 48px;
+		margin-left: 39px;
+	}
+	.icons-section {
+		display: flex;
+		flex-direction: column;
+		row-gap: 56px;
+		margin-top: 144px;
+		margin-bottom: 144px;
+	}
+	.pricing-section {
+		margin-bottom: 144px;
+		.pricing-title {
+			font-family: Manrope;
+			font-size: 24px;
+			font-weight: 800;
+			line-height: 33px;
+			letter-spacing: 0px;
+			text-align: center;
+			color: $white;
+		}
+		.pricing-description {
+			font-family: Manrope;
+			font-size: 15px;
+			font-weight: 500;
+			line-height: 25px;
+			letter-spacing: 0px;
+			text-align: center;
+			color: $grey;
+		}
+		.pricing-modals {
+			display: flex;
+			flex-direction: column;
+			row-gap: 65px;
+			margin-top: 56px;
+		}
+	}
+	.footer-section {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		row-gap: 24px;
+		margin-bottom: 164px;
+		.footer-title {
+			font-family: Manrope;
+			font-size: 24px;
+			font-weight: 800;
+			line-height: 33px;
+			letter-spacing: 0px;
+			text-align: center;
+			color: $white;
+		}
+	}
+	.path-svg {
+		position: absolute;
+		display: block;
+	}
 }
 </style>
