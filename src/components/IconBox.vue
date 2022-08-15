@@ -31,14 +31,6 @@ defineProps({
 		type: String,
 		default: "description",
 	},
-	width: {
-		type: String,
-		required: true,
-	},
-	height: {
-		type: String,
-		required: true,
-	},
 });
 </script>
 <style lang="scss" scoped>

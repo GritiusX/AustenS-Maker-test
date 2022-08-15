@@ -1,8 +1,8 @@
 <template>
 	<svg
 		v-if="price == 'Free'"
-		:width="width"
-		:height="height"
+		width="46"
+		height="46"
 		viewBox="0 0 46 46"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
@@ -50,8 +50,6 @@
 </template>
 <script setup>
 defineProps({
-	width: { type: String, default: "46" },
-	height: { type: String, default: "46" },
 	price: { type: String, default: "Free" },
 });
 </script>

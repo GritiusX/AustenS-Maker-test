@@ -78,9 +78,8 @@
 		</footer>
 	</main>
 </template>
-<!-- TO DO - Iconbox + PriceModal check svg so it changes through tablet + desktop -->
+
 <script setup>
-/* import HelloWorld from "./components/HelloWorld.vue"; */
 import TextField from "./components/TextField.vue";
 import MButton from "./components/MButton.vue";
 import IconBox from "./components/IconBox.vue";

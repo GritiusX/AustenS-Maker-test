@@ -182,10 +182,6 @@ defineProps({
 			padding: 61px 38px 60px;
 		}
 	}
-
-	/* 	.price-modal-container {
-
-	} */
 	.title {
 		margin-top: 0;
 		margin-block-start: 0em;
