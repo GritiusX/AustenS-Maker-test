@@ -104,10 +104,7 @@ defineProps({
 @media only screen and (min-width: 600px) {
 	.icon-box-container {
 		width: 515px;
-		display: flex;
 		flex-direction: row;
-		align-items: center;
-		justify-content: center;
 	}
 	.icon-box-container:nth-child(odd) {
 		margin-left: 58px;
@@ -124,13 +121,52 @@ defineProps({
 	}
 
 	.footer {
-		display: flex;
-		flex-direction: column;
 		text-align: start;
-		width: inherit;
 		margin-top: 0;
 		margin-left: 55px;
-		row-gap: 11px;
+		word-spacing: 0;
+	}
+}
+@media only screen and (min-width: 992px) {
+	.icon-box-container {
+		width: 255px;
+		height: 335px;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: 48px;
+	}
+	.icon-box-container:nth-child(odd) {
+		margin-left: 0;
+	}
+	.icon-box-container:nth-child(even) {
+		margin-top: 48px;
+	}
+	.icon {
+		flex-direction: column;
+		background-color: $blue;
+		height: 164px;
+		width: 160px;
+		border-radius: 45px;
+	}
+	.egg {
+		width: 88px;
+		height: 106px;
+	}
+	.moneyjar {
+		width: 74px;
+		height: 89px;
+	}
+	.cocktail {
+		width: 80px;
+		height: 94px;
+	}
+	.roadtrip {
+		width: 74px;
+		height: 104px;
+	}
+	.footer {
+		margin-left: 0px;
+		row-gap: 23px;
 		word-spacing: 0;
 		h3 {
 			color: $white;
