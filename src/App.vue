@@ -4,7 +4,9 @@
 	</nav>
 	<header class="main-header">
 		<div class="sub-header">
-			<h1 class="sub-title">Get paid for the work you love to do.</h1>
+			<h1 class="sub-title">
+				Get paid for the work you <span class="colored-span">love</span> to do.
+			</h1>
 			<h3 class="sub-description">
 				The 9-5 grind is so last century. We believe in living life on your own
 				terms. Whether you're looking to escape the rat race or set up a side
@@ -61,8 +63,17 @@
 		<footer class="footer-section">
 			<h3 class="footer-title">Get notified when we launch</h3>
 			<div class="footer-buttons">
-				<TextField class="footer-input-size" />
-				<MButton class="footer-button-size" text="Get Notified" />
+				<TextField
+					class="footer-input-size"
+					v-model.trim="emailInput"
+					:error="error"
+				/>
+				<MButton
+					class="footer-button-size"
+					text="Get Notified"
+					@click="validateEmail(emailInput)"
+				/>
+				{{ error }}
 			</div>
 		</footer>
 	</main>
@@ -77,9 +88,7 @@ import PriceModal from "./components/PriceModal.vue";
 import { ref } from "vue";
 import MouseSvg from "./components/svg/MouseSvg.vue";
 import MakerIcon from "./components/svg/MakerIcon.vue";
-import LeftHalfBackground from "./components/svg/LeftHalfBackground.vue";
-import RightHalfBackground from "./components/svg/RightHalfBackground.vue";
-import PathSvg from "./components/svg/PathSvg.vue";
+
 const checks = ref([
 	"Unlimited products",
 	"Basic analytics",
@@ -92,6 +101,17 @@ const checks2 = ref([
 	"High marketplace visibility",
 	"5% fee per transaction",
 ]);
+
+const emailInput = ref("");
+const error = ref(false);
+
+const validateEmail = (value) => {
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+		return (error.value = false);
+	} else {
+		return (error.value = true);
+	}
+};
 </script>
 
 <style lang="scss">
@@ -102,114 +122,121 @@ const checks2 = ref([
 	justify-content: center;
 	margin-top: 40px;
 }
+.main-header {
+	background-image: url("./assets/FullBG.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: flex;
+	justify-content: center;
+	margin-top: 66px;
+	padding: 0 24px;
+	.sub-header {
+		display: flex;
+		flex-direction: column;
+		margin-top: 283px;
+		align-items: center;
+		width: 100%;
+
+		.sub-title {
+			font-style: normal;
+			font-weight: 800;
+			font-size: 32px;
+			line-height: 40px;
+			text-align: center;
+			word-spacing: 1px;
+			padding: 0 36px;
+			color: $white;
+			margin-block-start: 0em;
+			margin-block-end: 0em;
+			.colored-span {
+				font-style: normal;
+				font-weight: 800;
+				font-size: 32px;
+				line-height: 40px;
+				text-align: center;
+				word-spacing: 1px;
+				color: $light-blue;
+			}
+		}
+		.sub-description {
+			font-family: "Manrope";
+			font-style: normal;
+			font-weight: 500;
+			font-size: 15px;
+			line-height: 25px;
+			text-align: center;
+			color: $grey;
+			z-index: 0;
+			margin-top: 20px;
+			margin-bottom: 32px;
+		}
+	}
+}
 .main-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin-top: 144px;
+	margin-bottom: 164px;
 	padding: 0 24px;
 	row-gap: 144px;
-	margin-bottom: 164px;
-}
-.main-header {
-	background-image: url("./assets/FullBG.svg");
-	background-repeat: no-repeat;
-	background-size: contain;
-	margin-top: 66px;
-	display: flex;
-	justify-content: center;
-	padding: 0 24px;
-}
-.sub-header {
-	display: flex;
-	flex-direction: column;
-	margin-top: 320px;
-	align-items: center;
-	width: 100%;
 
-	.sub-title {
-		font-style: normal;
-		font-weight: 800;
-		font-size: 32px;
-		line-height: 40px;
-		text-align: center;
-		word-spacing: 1px;
-		padding: 0 30px;
-		color: $white;
-		margin-block-start: 0em;
-		margin-block-end: 0em;
+	.icons-section {
+		display: flex;
+		flex-direction: column;
+		row-gap: 56px;
 	}
-	.sub-description {
-		font-family: "Manrope";
-		font-style: normal;
-		font-weight: 500;
-		font-size: 15px;
-		line-height: 25px;
-		text-align: center;
-		color: $grey;
-		z-index: 0;
-		padding: 0 13px;
-		margin-top: 23px;
-		margin-bottom: 32px;
+	.pricing-section {
+		.pricing-title {
+			font-family: Manrope;
+			font-size: 24px;
+			font-weight: 800;
+			line-height: 33px;
+			letter-spacing: 0px;
+			text-align: center;
+			color: $white;
+		}
+		.pricing-description {
+			font-family: Manrope;
+			font-size: 15px;
+			font-weight: 500;
+			line-height: 25px;
+			letter-spacing: 0px;
+			text-align: center;
+			color: $grey;
+			margin-top: 27px;
+		}
+		.pricing-modals {
+			display: flex;
+			flex-direction: column;
+			row-gap: 65px;
+			margin-top: 79px;
+		}
 	}
-}
-
-.icons-section {
-	display: flex;
-	flex-direction: column;
-	row-gap: 56px;
-	width: inherit;
-}
-.pricing-section {
-	.pricing-title {
+	.footer-section {
+		display: flex;
+		flex-direction: column;
+		row-gap: 31px;
+		padding-top: 5px;
+	}
+	.footer-buttons {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		row-gap: 24px;
+	}
+	.footer-title {
 		font-family: Manrope;
 		font-size: 24px;
 		font-weight: 800;
 		line-height: 33px;
-		letter-spacing: 0px;
+		letter-spacing: 1px;
+		margin: 0 42px;
 		text-align: center;
 		color: $white;
 	}
-	.pricing-description {
-		font-family: Manrope;
-		font-size: 15px;
-		font-weight: 500;
-		line-height: 25px;
-		letter-spacing: 0px;
-		text-align: center;
-		color: $grey;
-	}
-	.pricing-modals {
-		display: flex;
-		flex-direction: column;
-		row-gap: 65px;
-		margin-top: 56px;
-		padding: 0 25px;
-	}
-}
-.footer-section {
-	display: flex;
-	flex-direction: column;
-	row-gap: 31px;
-	padding-top: 5px;
-}
-.footer-buttons {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 100%;
-	row-gap: 24px;
-}
-.footer-title {
-	font-family: Manrope;
-	font-size: 24px;
-	font-weight: 800;
-	line-height: 33px;
-	letter-spacing: 1px;
-	margin: 0 42px;
-	text-align: center;
-	color: $white;
 }
 
 @media only screen and (min-width: 600px) {
@@ -218,32 +245,31 @@ const checks2 = ref([
 		margin-top: 48px;
 		margin-left: 39px;
 	}
-	.main-container {
-		max-width: 100%;
-		padding: 0 97px;
-		row-gap: 119px;
-		margin-top: 109px;
-		margin-bottom: 105px;
-	}
-	/* chequear aca que esta pasando */
 	.main-header {
 		background-image: url("./assets/LeftBG.svg"), url("./assets/PathBG.svg"),
 			url("./assets/RightBG.svg");
-		background-position: -36% 0, 50% 25px, 121% 0;
+		background-position: -35% 0, 50% 25px, 121% 0;
 		background-size: 303px, 386px, 241px;
-		margin-top: 78px;
+		margin-top: 77px;
 		height: 343px;
+		.sub-header {
+			margin-top: 27px;
+			width: 62%;
+			.sub-title {
+				padding-top: 25px;
+			}
+			.sub-description {
+				padding: 0 0;
+				margin-top: 24px;
+			}
+		}
 	}
-
-	.sub-header {
-		margin-top: 27px;
-		width: 62%;
-		.sub-title {
-			padding-top: 25px;
-		}
-		.sub-description {
-			padding: 0 0;
-		}
+	.main-container {
+		max-width: 100%;
+		margin-top: 109px;
+		margin-bottom: 105px;
+		padding: 0 97px;
+		row-gap: 119px;
 	}
 
 	.pricing-section {
@@ -257,25 +283,25 @@ const checks2 = ref([
 		flex-direction: column;
 		width: 100%;
 		row-gap: 24px;
-	}
-	.footer-title {
-		font-family: Manrope;
-		font-size: 24px;
-		font-weight: 800;
-		line-height: 33px;
-		letter-spacing: 0px;
-		text-align: center;
-		color: $white;
-	}
-	.footer-buttons {
-		flex-direction: row;
-		column-gap: 16px;
-	}
-	.footer-input-size {
-		width: 320px;
-	}
-	.footer-button-size {
-		width: 140px;
+		.footer-title {
+			font-family: Manrope;
+			font-size: 24px;
+			font-weight: 800;
+			line-height: 33px;
+			letter-spacing: 0px;
+			text-align: center;
+			color: $white;
+		}
+		.footer-buttons {
+			flex-direction: row;
+			column-gap: 16px;
+		}
+		.footer-input-size {
+			width: 320px;
+		}
+		.footer-button-size {
+			width: 140px;
+		}
 	}
 }
 @media only screen and (min-width: 992px) {
@@ -298,6 +324,13 @@ const checks2 = ref([
 				font-size: 48px;
 				line-height: 56px;
 				padding: 25px 0px 0px;
+				.colored-span {
+					font-size: 48px;
+					line-height: 56px;
+					text-align: center;
+					word-spacing: 1px;
+					color: $light-blue;
+				}
 			}
 			.sub-description {
 				padding: 0 0;
@@ -309,8 +342,8 @@ const checks2 = ref([
 		max-width: 100%;
 		padding: 0 165px;
 		row-gap: 151px;
-		margin-top: 109px;
-		margin-bottom: 105px;
+		margin-top: 202px;
+		margin-bottom: 117px;
 		.icons-section {
 			display: flex;
 			flex-direction: row;
@@ -320,6 +353,10 @@ const checks2 = ref([
 		}
 		.pricing-section {
 			margin-top: 51px;
+			.pricing-title {
+				font-size: 32px;
+				line-height: 44px;
+			}
 			.pricing-description {
 				margin: 24px 258px 105px;
 			}
@@ -339,10 +376,10 @@ const checks2 = ref([
 			row-gap: 24px;
 			.footer-title {
 				font-family: Manrope;
-				font-size: 24px;
+				font-size: 32px;
 				font-weight: 800;
-				line-height: 33px;
-				letter-spacing: 0px;
+				line-height: 44px;
+				word-spacing: 1px;
 				text-align: center;
 				color: $white;
 			}

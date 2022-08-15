@@ -54,7 +54,6 @@ defineProps({
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
 	background-color: $blue;
 	height: 124px;
 	width: 120px;
@@ -80,7 +79,6 @@ defineProps({
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	width: inherit;
 	margin-top: 32px;
 	row-gap: 11px;
 	word-spacing: 1px;
@@ -116,7 +114,7 @@ defineProps({
 		flex-direction: column;
 		background-color: $blue;
 		height: 124px;
-		width: 35.5%;
+		width: 39%;
 		border-radius: 45px;
 	}
 
@@ -161,8 +159,8 @@ defineProps({
 		height: 94px;
 	}
 	.roadtrip {
-		width: 74px;
-		height: 104px;
+		height: 74px;
+		width: 104px;
 	}
 	.footer {
 		margin-left: 0px;

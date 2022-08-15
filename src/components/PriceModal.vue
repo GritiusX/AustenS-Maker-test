@@ -11,7 +11,7 @@
 			:price="price"
 		/>
 		<header>
-			<h3 :class="price == 'Free' ? 'title free' : 'title priced'">
+			<h3 class="title">
 				{{ title }}
 			</h3>
 			<p class="description">{{ description }}</p>
@@ -55,19 +55,20 @@ defineProps({
 <style lang="scss" scoped>
 @import "../assets/variables";
 .price-modal-container {
-	&.free {
-		background-color: $blue;
-		color: $white;
-	}
-	&.priced {
-		background-color: $light-blue;
-		color: $blue;
-	}
 	position: relative;
-	padding: 49px 30px 32px;
 	height: 100%;
 	border-radius: 8px;
 	font-weight: 500;
+	&.free {
+		background-color: $blue;
+		color: $white;
+		padding: 49px 30px 32px;
+	}
+	&.priced {
+		background-color: $light-blue;
+		color: $black;
+		padding: 61px 30px 32px;
+	}
 }
 .svg-position {
 	position: absolute;
@@ -87,25 +88,21 @@ defineProps({
 	line-height: 25px;
 	letter-spacing: 0px;
 	text-align: left;
-	margin-top: 12px;
 }
 .description {
 	font-family: Manrope;
 	font-size: 15px;
 	line-height: 25px;
-	letter-spacing: 0px;
-	margin-top: 19px;
-	margin-bottom: 26px;
 	text-align: left;
 	opacity: 0.6;
-	word-spacing: 1px;
+	margin-top: 19px;
+	margin-bottom: 26px;
 }
 .price {
 	font-family: Manrope;
 	font-size: 40px;
 	font-weight: 800;
 	line-height: 55px;
-	letter-spacing: 0px;
 	text-align: left;
 }
 .month-span {

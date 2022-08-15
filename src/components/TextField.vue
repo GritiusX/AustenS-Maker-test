@@ -2,8 +2,10 @@
 	<div class="text-field-container">
 		<input
 			:class="error ? 'text-field error' : 'text-field'"
+			:value="modelValue"
 			type="email"
 			placeholder="Email address"
+			@input="$emit('update:modelValue', $event.target.value)"
 		/>
 		<label v-if="error" class="text-field-error">{{ text }}</label>
 	</div>
@@ -15,11 +17,16 @@ defineProps({
 		type: String,
 		default: "Oops! That doesn't look like an email address",
 	},
+	modelValue: {
+		type: String,
+		default: "",
+	},
 	error: {
 		type: Boolean,
 		default: false,
 	},
 });
+defineEmits(["update:modelValue"]);
 </script>
 
 <style lang="scss" scoped>
